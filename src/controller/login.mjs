@@ -15,9 +15,9 @@ class Login {
                     ctx.return({ msg: '密码错误' })
                 } else {
                     const { id, name } = _res
-                    const sign = ctx.jwt.sign({ name, id })
+                    const token = ctx.jwt.sign({ name, id })
                     ctx.return({ code: 200, data: {
-                        token: sign,
+                        token,
                         name,
                         id
                     } })
@@ -41,9 +41,9 @@ class Login {
                 const { res } = await user.insert({ name, password: ctx.md5(password) })
                 if (res) {
                     const id = res.insertId
-                    const sign = ctx.jwt.sign({ name, id })
+                    const token = ctx.jwt.sign({ name, id })
                     ctx.return({ code: 200, data: {
-                        token: sign,
+                        token,
                         name,
                         id
                     } })
