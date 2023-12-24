@@ -8,7 +8,6 @@ export default () => {
         const tt = endTime - startTime
         const { method, url, query } = ctx
         const info = `${url} ${method} ${JSON.stringify(query)} ${tt}ms`
-        log.log(info)
         log.info(info)  
     }
 }

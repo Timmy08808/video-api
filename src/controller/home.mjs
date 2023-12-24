@@ -1,7 +1,7 @@
-
+import md5 from 'md5'
 class HomeController {
     static async get(ctx) {
-        ctx.body = 'home ===='
+        ctx.body = 'home ====' + md5('8888')
     }
 }
 
