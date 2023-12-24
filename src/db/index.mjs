@@ -2,12 +2,15 @@ import log from '../log/index.mjs'
 import MySql from './mysql.mjs'
 
 const sql = new MySql()
-class SqlFn {
+class SqlFn extends MySql {
     table = ''
-    query(sql) {
-        return sql.query(sql)
+    constructor() {
+        super()
     }
-
+    list() {
+        const sql = `select * from ${this.table}`
+       return this.query(sql)
+    }
 }
 
 export default SqlFn

@@ -8,7 +8,6 @@ class MySql {
         this.init()
     }
     init() {
-        if (this.connection) this.end()
         this.connection.connect(err => {
             if (err) {
                 log.error('db connect error ===>', err)
@@ -31,7 +30,7 @@ class MySql {
                     resolve(res)
                 }
             })
-        })
+        }).then(res => ({ res }), err => ({ err }))
     }
 
     end() {

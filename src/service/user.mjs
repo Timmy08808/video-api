@@ -4,4 +4,4 @@ class User extends Sql {
     table = 'user'
 }
 
-export default User
+export default new User()
