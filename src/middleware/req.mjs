@@ -12,8 +12,8 @@ export default () => {
         }
         const endTime = +new Date()
         const tt = endTime - startTime
-        const { method, url, query } = ctx
-        const info = `${url} ${method} ${JSON.stringify(query)} ${tt}ms`
+        const { method, url, query, request } = ctx
+        const info = `${url} ${method} ${JSON.stringify(request.body)} ${JSON.stringify(query)} ${tt}ms`
         log.info(info)
     }
 }
